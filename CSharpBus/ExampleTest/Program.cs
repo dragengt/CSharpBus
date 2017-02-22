@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ReflectionTest
+namespace CSharpBusTest
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace ReflectionTest
             Application.SetCompatibleTextRenderingDefault(false);
 
             //--Init here:
-            danteBus.Test.InitController.Init();
+            InitController.Init();
 
             Application.Run(new Form1());
         }

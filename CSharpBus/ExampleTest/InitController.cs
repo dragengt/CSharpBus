@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace danteBus.Test
+namespace CSharpBusTest
 {
     /// <summary>
     /// Controller to handle register
@@ -11,7 +11,7 @@ namespace danteBus.Test
     {
         public static void Init()
         { 
-            //--Init all the classes that want to registe to callback bus:
+            //Init all the classes that want to registe to callback bus:
             new LoginHandler().Init();
         }
     }

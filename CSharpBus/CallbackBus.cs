@@ -2,26 +2,36 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace danteBus
+namespace CSharpBus
 {
-    public delegate void CallbackFunc();
-    public delegate void CallbackFuncWithBool(bool param);
-    public delegate void CallbackFuncWithObj(Object param);
-    
-    public delegate bool BoolCallbackFunc();
-    public delegate bool BoolCallbackFuncWithBool(bool param);
-    public delegate bool BoolCallbackFuncWithInt(int param);
-    public delegate bool BoolCallbackFuncWithStr(string param);
+    public delegate void Callback();
+    public delegate void CallbackWithBool(bool param);
+    public delegate void CallbackWithObj(Object param);
+    public delegate void CallbackWithStr(string param);
+    public delegate void CallbackWithStrings(string[] strs);
 
-    public delegate int IntCallbackFunc();
-    public delegate int IntCallbackFuncWithInt(int param);
-    public delegate int IntCallbackFuncWithFloat(float param);
+    public delegate bool BoolCallback();
+    public delegate bool BoolCallbackWithBool(bool param);
+    public delegate bool BoolCallbackWithInt(int param);
+    public delegate bool BoolCallbackWithStr(string param);
+    public delegate bool BoolCallbackWithObj(Object param);
+    public delegate bool BoolCallbackWithStrs(string[] strs);
 
-    public delegate string StringCallbackFunc();
-    public delegate string StringCallbackFuncWithStr(string param);
-    public delegate string StringCallbackFuncWithInt(int param);
-    
-    public delegate Object ObjectCallbackFuncWithObj(Object obj);
+    public delegate int IntCallback();
+    public delegate int IntCallbackWithInt(int param);
+    public delegate int IntCallbackWithFloat(float param);
+    public delegate int IntCallbackWithStr(string param);
+    public delegate int IntCallbackWithStrs(string[] strs);
+
+    public delegate string StringCallback();
+    public delegate string StringCallbackWithStr(string param);
+    public delegate string StringCallbackWithInt(int param);
+    public delegate string StringCallbackWithStrs(string[] strs);
+    public delegate string StringCallbackWithObj(Object param);
+
+    public delegate Object ObjectCallbackWithObj(Object obj);
+
+
 
     /// <summary>
     /// Service for singleton classes: 
@@ -37,54 +47,38 @@ namespace danteBus
         //  Get on the bus!
         //------------------------------------------------------------
         #region Register part
-        
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, CallbackFunc cbFunc)
+        public static bool Register(string callbackName, Callback cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, CallbackFuncWithBool cbFunc)
+        public static bool Register(string callbackName, CallbackWithBool cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, CallbackFuncWithObj cbFunc)
-        {
-            return AddCallback(callbackName, (Delegate)cbFunc);
-        }
-
-        /// <summary>
-        /// Register your func as service
-        /// </summary>
-        public static bool Register(string callbackName, BoolCallbackFunc cbFunc)
+        public static bool Register(string callbackName, CallbackWithObj cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, BoolCallbackFuncWithBool cbFunc)
+        public static bool Register(string callbackName, CallbackWithStr cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, BoolCallbackFuncWithInt cbFunc)
-        {
-            return AddCallback(callbackName, (Delegate)cbFunc);
-        }
-        /// <summary>
-        /// Register your func as service
-        /// </summary>
-        public static bool Register(string callbackName, BoolCallbackFuncWithStr cbFunc)
+        public static bool Register(string callbackName, CallbackWithStrings cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
@@ -92,21 +86,42 @@ namespace danteBus
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, IntCallbackFunc cbFunc)
+        public static bool Register(string callbackName, BoolCallback cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, IntCallbackFuncWithInt cbFunc)
+        public static bool Register(string callbackName, BoolCallbackWithBool cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, IntCallbackFuncWithFloat cbFunc)
+        public static bool Register(string callbackName, BoolCallbackWithInt cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, BoolCallbackWithStr cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, BoolCallbackWithObj cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, BoolCallbackWithStrs cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
@@ -114,21 +129,35 @@ namespace danteBus
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, StringCallbackFunc cbFunc)
+        public static bool Register(string callbackName, IntCallback cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, StringCallbackFuncWithStr cbFunc)
+        public static bool Register(string callbackName, IntCallbackWithInt cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, StringCallbackFuncWithInt cbFunc)
+        public static bool Register(string callbackName, IntCallbackWithFloat cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, IntCallbackWithStr cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, IntCallbackWithStrs cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
@@ -136,10 +165,48 @@ namespace danteBus
         /// <summary>
         /// Register your func as service
         /// </summary>
-        public static bool Register(string callbackName, ObjectCallbackFuncWithObj cbFunc)
+        public static bool Register(string callbackName, StringCallback cbFunc)
         {
             return AddCallback(callbackName, (Delegate)cbFunc);
         }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, StringCallbackWithStr cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, StringCallbackWithInt cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, StringCallbackWithStrs cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, StringCallbackWithObj cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+
+        /// <summary>
+        /// Register your func as service
+        /// </summary>
+        public static bool Register(string callbackName, ObjectCallbackWithObj cbFunc)
+        {
+            return AddCallback(callbackName, (Delegate)cbFunc);
+        }
+
+
         #endregion
 
         //------------------------------------------------------------
@@ -147,98 +214,146 @@ namespace danteBus
         //  Who is on the bus
         //------------------------------------------------------------
         #region find callback func:
-        public static CallbackFunc GetCallbackFunc(string callbackName)
+        public static Callback GetCallback(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (CallbackFunc)delegateFunc;
+            return (Callback)delegateFunc;
         }
-        public static CallbackFuncWithBool GetCallbackFuncWithBool(string callbackName)
+        public static CallbackWithBool GetCallbackWithBool(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (CallbackFuncWithBool)delegateFunc;
+            return (CallbackWithBool)delegateFunc;
         }
-        public static CallbackFuncWithObj GetCallbackFuncWithObj(string callbackName)
+        public static CallbackWithObj GetCallbackWithObj(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (CallbackFuncWithObj)delegateFunc;
+            return (CallbackWithObj)delegateFunc;
         }
-
-        public static BoolCallbackFunc GetBoolCallbackFunc(string callbackName)
+        public static CallbackWithStr GetCallbackWithStr(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (BoolCallbackFunc)delegateFunc;
+            return (CallbackWithStr)delegateFunc;
         }
-        public static BoolCallbackFuncWithBool GetBoolCallbackFuncWithBool(string callbackName)
+        public static CallbackWithStrings GetCallbackWithStrings(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (BoolCallbackFuncWithBool)delegateFunc;
+            return (CallbackWithStrings)delegateFunc;
         }
-        public static BoolCallbackFuncWithInt GetBoolCallbackFuncWithInt(string callbackName)
+
+        public static BoolCallback GetBoolCallback(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (BoolCallbackFuncWithInt)delegateFunc;
+            return (BoolCallback)delegateFunc;
         }
-        public static BoolCallbackFuncWithStr GetBoolCallbackFuncWithStr(string callbackName)
+        public static BoolCallbackWithBool GetBoolCallbackWithBool(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (BoolCallbackFuncWithStr)delegateFunc;
+            return (BoolCallbackWithBool)delegateFunc;
         }
-
-        public static IntCallbackFunc GetIntCallbackFunc(string callbackName)
+        public static BoolCallbackWithInt GetBoolCallbackWithInt(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (IntCallbackFunc)delegateFunc;
+            return (BoolCallbackWithInt)delegateFunc;
         }
-        public static IntCallbackFuncWithInt GetIntCallbackFuncWithInt(string callbackName)
+        public static BoolCallbackWithStr GetBoolCallbackWithStr(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (IntCallbackFuncWithInt)delegateFunc;
+            return (BoolCallbackWithStr)delegateFunc;
         }
-        public static IntCallbackFuncWithFloat GetIntCallbackFuncWithFloat(string callbackName)
+        public static BoolCallbackWithObj GetBoolCallbackWithObj(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (IntCallbackFuncWithFloat)delegateFunc;
+            return (BoolCallbackWithObj)delegateFunc;
         }
-
-        public static StringCallbackFuncWithInt GetStringCallbackFunc(string callbackName)
+        public static BoolCallbackWithStrs GetBoolCallbackWithStrs(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (StringCallbackFuncWithInt)delegateFunc;
+            return (BoolCallbackWithStrs)delegateFunc;
         }
-        public static StringCallbackFuncWithStr GetStringCallbackFuncWithStr(string callbackName)
+
+        public static IntCallback GetIntCallback(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (StringCallbackFuncWithStr)delegateFunc;
+            return (IntCallback)delegateFunc;
         }
-        public static StringCallbackFuncWithInt GetStringCallbackFuncWithInt(string callbackName)
+        public static IntCallbackWithInt GetIntCallbackWithInt(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (StringCallbackFuncWithInt)delegateFunc;
+            return (IntCallbackWithInt)delegateFunc;
         }
-
-        public static ObjectCallbackFuncWithObj GetObjectCallbackFuncWithObj(string callbackName)
+        public static IntCallbackWithFloat GetIntCallbackWithFloat(string callbackName)
         {
             Delegate delegateFunc = GetFunc(callbackName);
 
-            return (ObjectCallbackFuncWithObj)delegateFunc;
+            return (IntCallbackWithFloat)delegateFunc;
+        }
+        public static IntCallbackWithStr GetIntCallbackWithStr(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
+
+            return (IntCallbackWithStr)delegateFunc;
+        }
+        public static IntCallbackWithStrs GetIntCallbackWithStrs(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
+
+            return (IntCallbackWithStrs)delegateFunc;
         }
 
-    
+        public static StringCallback GetStringCallback(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
 
+            return (StringCallback)delegateFunc;
+        }
+        public static StringCallbackWithStr GetStringCallbackWithStr(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
 
+            return (StringCallbackWithStr)delegateFunc;
+        }
+        public static StringCallbackWithInt GetStringCallbackWithInt(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
+
+            return (StringCallbackWithInt)delegateFunc;
+        }
+        public static StringCallbackWithStrs GetStringCallbackWithStrs(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
+
+            return (StringCallbackWithStrs)delegateFunc;
+        }
+        public static StringCallbackWithObj GetStringCallbackWithObj(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
+
+            return (StringCallbackWithObj)delegateFunc;
+        }
+
+        public static ObjectCallbackWithObj GetObjectCallbackWithObj(string callbackName)
+        {
+            Delegate delegateFunc = GetFunc(callbackName);
+
+            return (ObjectCallbackWithObj)delegateFunc;
+        }
+
+        /// <summary>
+        /// Get delegate registed
+        /// </summary>
         public static Delegate GetFunc(string callbackName)
         {
             if (g_dictCallbacks.ContainsKey(callbackName))
@@ -257,7 +372,11 @@ namespace danteBus
         //                  Remove part
         //  Somebody get out of the bus
         //------------------------------------------------------------
-        
+        public static bool HasCallback(string callbackName)
+        {
+            return g_dictCallbacks.ContainsKey(callbackName);
+        }
+
         /// <summary>
         /// Remove the callback
         /// </summary>
