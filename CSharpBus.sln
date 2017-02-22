@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallbackBusTest", "ReflectionTest\CallbackBusTest.csproj", "{2B88267B-B456-415A-A046-CF6E86E12821}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBus", "CSharpBus\CSharpBus.csproj", "{2B88267B-B456-415A-A046-CF6E86E12821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

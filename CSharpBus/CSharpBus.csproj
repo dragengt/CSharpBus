@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallbackBus.cs" />
-    <Compile Include="ExampleTest\Controller.cs" />
+    <Compile Include="ExampleTest\InitController.cs" />
     <Compile Include="ExampleTest\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
